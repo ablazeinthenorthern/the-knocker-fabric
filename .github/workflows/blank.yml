@@ -1,0 +1,20 @@
+The YAML file got corrupted when you pasted it — it has yamlname at the start instead of the actual content.
+Go to your repo, find .github/workflows/build.yml, click the pencil/edit button, delete everything in it, and paste this fresh:
+yamlname: Build Mod
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+      - name: Build
+        run: ./gradlew build
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: the-knocker-fabric
+          path: build/libs/*.jar
