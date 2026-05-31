@@ -1,3 +1,5 @@
+The YAML file got corrupted when you pasted it — it has yamlname at the start instead of the actual content.
+Go to your repo, find .github/workflows/build.yml, click the pencil/edit button, delete everything in it, and paste this fresh:
 yamlname: Build Mod
 on: [push]
 jobs:
